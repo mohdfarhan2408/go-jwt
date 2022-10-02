@@ -119,3 +119,13 @@ func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{})
 
 }
+
+func Validate(c *gin.Context) {
+	user, _ := c.Get("user") //accept two return type, in this case I want to use only the first return type.
+
+	//user.(models.User).ID
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": user,
+	})
+}
